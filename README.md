@@ -1,4 +1,4 @@
-# EcoCash Android Library
+# 💳 EcoCash Android Library
 
 An easy-to-use Android library for integrating **EcoCash mobile payments** into your Android applications.  
 This library simplifies initiating payments, handling callbacks, and managing transaction states when working with the EcoCash API.
@@ -7,12 +7,12 @@ This library simplifies initiating payments, handling callbacks, and managing tr
 
 ## ✨ Features
 
-- Simple EcoCash payment initiation
-- Clean API for transaction requests
-- Callback handling for success, failure, and pending states
-- Lightweight and easy to integrate
-- Kotlin & Java compatible
-- Ready for production and sandbox environments
+- Simple EcoCash payment initiation  
+- Clean API for transaction requests  
+- Callback handling for success, failure, and pending states  
+- Lightweight and easy to integrate  
+- Kotlin & Java compatible  
+- Ready for production and sandbox environments  
 
 ---
 
@@ -20,7 +20,7 @@ This library simplifies initiating payments, handling callbacks, and managing tr
 
 ### Using JitPack
 
-1. Add JitPack to your root `build.gradle`:
+Add JitPack to your root `build.gradle`:
 
 ```gradle
 allprojects {
@@ -28,28 +28,33 @@ allprojects {
         maven { url "https://jitpack.io" }
     }
 }
+Add the dependency:
 
-
+gradle
+Copy code
 dependencies {
     implementation "com.github.isheunesutembo:ecocash-library:1.0.0"
 }
-
-
-## 🚀 Getting Started
-### Initialize the Library
+🚀 Getting Started
+Initialize the Library
+kotlin
+Copy code
 EcoCash.initialize(
     context = this,
     merchantId = "YOUR_MERCHANT_ID",
     merchantKey = "YOUR_MERCHANT_KEY",
     environment = EcoCashEnvironment.SANDBOX // or EcoCashEnvironment.PRODUCTION
 )
-
+Request a Payment
+kotlin
+Copy code
 EcoCash.requestPayment(
     amount = 10.0,
     phoneNumber = "0771234567",
     reference = "ORDER_12345",
     description = "Payment for order #12345",
     callback = object : EcoCashCallback {
+
         override fun onSuccess(transactionId: String) {
             // Payment successful
         }
@@ -63,9 +68,7 @@ EcoCash.requestPayment(
         }
     }
 )
-
 🔁 Handling Callbacks
-
 The library handles most of the EcoCash API complexity internally, but you should:
 
 Log all transaction states
@@ -79,32 +82,30 @@ Parameter	Description
 merchantId	Your EcoCash merchant ID
 merchantKey	Your EcoCash API secret key
 environment	SANDBOX or PRODUCTION
-🛡️ Permissions
 
+🛡️ Permissions
 Add the following permission to your AndroidManifest.xml:
 
+xml
+Copy code
 <uses-permission android:name="android.permission.INTERNET" />
-
 🧪 Testing
-
 Always use the sandbox environment during development:
 
+kotlin
+Copy code
 EcoCashEnvironment.SANDBOX
-
-
 Switch to production only after your integration is fully tested.
 
 📌 Versioning
-
 This project follows Semantic Versioning:
 
+Copy code
 MAJOR.MINOR.PATCH
-
-
 Example:
 
+Copy code
 1.0.0
-
 📄 License
 MIT License
 
@@ -114,34 +115,31 @@ Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction...
 
-
 (You may replace this with Apache 2.0 if preferred.)
 
 🤝 Contributing
-
 Contributions are welcome and appreciated!
 
 Fork the repository
 
 Create your feature branch
 
+bash
+Copy code
 git checkout -b feature/my-feature
-
-
 Commit your changes
 
+bash
+Copy code
 git commit -m "Add new feature"
-
-
 Push to your branch
 
+bash
+Copy code
 git push origin feature/my-feature
-
-
 Open a Pull Request
 
 📞 Support
-
 For bugs, feature requests, or improvements:
 
 Open an issue on GitHub
@@ -149,7 +147,6 @@ Open an issue on GitHub
 Or contact: your-email@example.com
 
 🌍 Why EcoCash Library?
-
 EcoCash is widely used in Zimbabwe and surrounding regions.
 This library aims to make EcoCash integration as simple and developer-friendly as modern payment SDKs like Stripe or PayPal.
 
